@@ -31,7 +31,7 @@ public class DisplayItem implements Comparable<DisplayItem> {
         sb.append(freeLocks);
         sb.append("\n\tLedige sykler: ");
         sb.append(availableBikes);
-        sb.append("\n\n");
+        sb.append("\n");
         return sb.toString();
     }
 
