@@ -1,5 +1,8 @@
 package no.tron.citybikes.changing;
 
+/**
+ * Transient bike station information record. Fields change as bikes are taken out and returned.
+ */
 public class ChangingStationInfo {
 
     private String id;

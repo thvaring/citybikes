@@ -1,5 +1,8 @@
 package no.tron.citybikes;
 
+/**
+ * Printable aggregate of fixed and transient data for a station, sortable by station name.
+ */
 public class DisplayItem implements Comparable<DisplayItem> {
 
     private String stationId;
@@ -16,7 +19,7 @@ public class DisplayItem implements Comparable<DisplayItem> {
         this.freeLocks = freeLocks;
     }
 
-     @Override
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(stationName);
@@ -36,4 +39,5 @@ public class DisplayItem implements Comparable<DisplayItem> {
     public int compareTo(DisplayItem o) {
         return stationName.compareTo(o.stationName);
     }
+
 }

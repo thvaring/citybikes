@@ -8,6 +8,12 @@ import java.util.Map;
 
 public class ChangingDataExtractor {
 
+    /**
+     * Parse JSON for changing station information, return a collection keyed by station ID.
+     *
+     * @param json JSON string to parse
+     * @return collection, or null if input is incorrect
+     */
     public static Map<String, ChangingStationInfo> getChangingStationInfo(String json) {
         Map<String, ChangingStationInfo> infoMap = new HashMap<>();
         try {
@@ -22,4 +28,5 @@ public class ChangingDataExtractor {
         }
         return infoMap;
     }
+
 }

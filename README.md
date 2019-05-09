@@ -12,6 +12,3 @@ To run:
 Then type:
 
     java -jar citybikes.jar
-
-The GSON dependency (gson-2.8.2) is embedded in citybikes.jar, so you don't actually need to build before running.
-

@@ -8,6 +8,12 @@ import java.util.List;
 
 public class FixedDataExtractor {
 
+    /**
+     * Parse JSON for fixed station information, return a list of entries.
+     *
+     * @param json JSON string to parse
+     * @return collection, or null if input is incorrect
+     */
     public static List<FixedStationInfo> getFixedStationInfo(String json) {
         List<FixedStationInfo> fixedStationInfoList = new ArrayList<>();
         try {

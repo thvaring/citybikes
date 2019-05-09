@@ -12,7 +12,6 @@
  */
 package no.tron.citybikes;
 
-
 import no.tron.citybikes.changing.ChangingDataExtractor;
 import no.tron.citybikes.changing.ChangingStationInfo;
 import no.tron.citybikes.fixed.FixedDataExtractor;
@@ -40,13 +39,17 @@ public class CityBikes {
 
     private static Set<DisplayItem> items = new TreeSet<>();
 
+
+    /**
+     * Fixed information is the master: if a station has a changing but no fixed information record it'll be ignored.
+     */
     public static void main(String[] args) {
 
-        String json = getJsonFromURL(FIXED_STATION_INFO_URL);
+        String json = getTextFromURL(FIXED_STATION_INFO_URL);
         if (json != null) {
             List<FixedStationInfo> fixedInfoList = FixedDataExtractor.getFixedStationInfo(json);
             if (fixedInfoList != null && !fixedInfoList.isEmpty()) {
-                json = getJsonFromURL(CHANGING_STATION_INFO_URL);
+                json = getTextFromURL(CHANGING_STATION_INFO_URL);
                 if (json != null) {
                     Map<String, ChangingStationInfo> changingInfoList = ChangingDataExtractor.getChangingStationInfo(json);
                     if (changingInfoList != null && !changingInfoList.isEmpty()) {
@@ -63,11 +66,17 @@ public class CityBikes {
 
         for (DisplayItem item : items)
             System.out.println(item);
-}
+    }
 
 
-    private static String getJsonFromURL(final String urlString) {
-        StringBuffer jsonBuffer = new StringBuffer();
+    /**
+     * Read text from an URL using http GET and return it. In a production version we should care about the size of what we read.
+     *
+     * @param urlString where to read from
+     * @return string found at the given URL
+     */
+    private static String getTextFromURL(final String urlString) {
+        StringBuffer textBuffer = new StringBuffer();
 
         try {
             URL url = new URL(urlString);
@@ -77,7 +86,7 @@ public class CityBikes {
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                jsonBuffer.append(line);
+                textBuffer.append(line);
             }
             in.close();
         } catch (MalformedURLException mue) {
@@ -94,6 +103,7 @@ public class CityBikes {
             return null;
         }
 
-        return jsonBuffer.toString();
+        return textBuffer.toString();
     }
+
 }
