@@ -6,22 +6,11 @@ import com.google.gson.annotations.SerializedName;
 public class Station {
 
     @SerializedName("station_id")
-    @Expose
     private String stationId;
-    @SerializedName("name")
-    @Expose
     private String name;
-    @SerializedName("address")
-    @Expose
     private String address;
-    @SerializedName("lat")
-    @Expose
     private Double lat;
-    @SerializedName("lon")
-    @Expose
     private Double lon;
-    @SerializedName("capacity")
-    @Expose
     private Integer capacity;
 
     public String getStationId() {

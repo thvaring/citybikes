@@ -8,8 +8,6 @@ import java.util.List;
 
 public class Data {
 
-    @SerializedName("stations")
-    @Expose
     private List<Station> stations = new ArrayList<Station>();
 
     public List<Station> getStations() {
