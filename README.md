@@ -11,4 +11,7 @@ To run:
  
 Then type:
 
-    java -jar citybikes.jar
+    java -jar citybikes.jar [--csv]
+
+If --csv is entered, output will be CSV, otherwise it will be human readable. Output is sent to stdout.
+

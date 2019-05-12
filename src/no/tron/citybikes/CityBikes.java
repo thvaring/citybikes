@@ -64,13 +64,19 @@ public class CityBikes {
             }
         }
 
+        if (args.length > 0 && "--csv".equalsIgnoreCase(args[0])) {
+            DisplayItem.setCsvPrintMode();
+            if (items.size() > 0)
+                DisplayItem.printCsvHeaders();
+        }
+
         for (DisplayItem item : items)
             System.out.println(item);
     }
 
 
     /**
-     * Read text from an URL using http GET and return it. In a production version we should care about the size of what we read.
+     * Read and return text from a URL using http GET. In a production version we should care about the size of what we read.
      *
      * @param urlString where to read from
      * @return string found at the given URL
