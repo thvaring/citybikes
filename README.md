@@ -1,5 +1,5 @@
 # CityBikes by Tron Hvaring
-# 2019-05-16
+# 2019-05-12
 
 Simple app to fetch and display Oslo city bike station information.
 
